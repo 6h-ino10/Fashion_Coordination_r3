@@ -1,0 +1,779 @@
+Creating test database for alias 'default'...
+Found 33 test(s).
+System check identified no issues (0 silenced).
+FF...F.FEFFEFFFFFFEEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEEEEE......F
+======================================================================
+ERROR: test_post_request (coordination_app.tests.test_views.CoordinationCreateViewTest.test_post_request)
+----------------------------------------------------------------------
+
+
+======================================================================
+ERROR: test_pagination (coordination_app.tests.test_views.CoordinationListViewTest.test_pagination)
+----------------------------------------------------------------------
+
+======================================================================
+ERROR: test_region_setup (users.tests.test_forms.RegionFormTest.test_region_setup)
+----------------------------------------------------------------------
+
+======================================================================
+ERROR: test_user_change_form (users.tests.test_forms.UserChangeFormTest.test_user_change_form)
+----------------------------------------------------------------------
+
+======================================================================
+ERROR: test_user_profile_region (users.tests.test_models.UserProfileModelTest.test_user_profile_region)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 19, in setUp
+    self.random_region = random.choice(regions)
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 373, in choice
+    raise IndexError('Cannot choose from an empty sequence')
+IndexError: Cannot choose from an empty sequence
+
+======================================================================
+ERROR: test_get_weather_for_user_with_region (users.tests.test_views.GetWeatherForUserViewTest.test_get_weather_for_user_with_region)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_views.py", line 88, in setUp
+    self.user_profile = UserProfile.objects.create(user=self.user, region=self.region)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+======================================================================
+ERROR: test_get_weather_for_user_without_region (users.tests.test_views.GetWeatherForUserViewTest.test_get_weather_for_user_without_region)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_views.py", line 88, in setUp
+    self.user_profile = UserProfile.objects.create(user=self.user, region=self.region)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+======================================================================
+ERROR: test_weather_display_in_coordination_list (users.tests.test_views.GetWeatherForUserViewTest.test_weather_display_in_coordination_list)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_views.py", line 88, in setUp
+    self.user_profile = UserProfile.objects.create(user=self.user, region=self.region)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+======================================================================
+ERROR: test_weather_display_in_item_list (users.tests.test_views.GetWeatherForUserViewTest.test_weather_display_in_item_list)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_views.py", line 88, in setUp
+    self.user_profile = UserProfile.objects.create(user=self.user, region=self.region)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_userprofile.user_id
+
+======================================================================
+FAIL: test_coordination_register (coordination_app.tests.test_forms.CoordinationFormTest.test_coordination_register)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_forms.py", line 46, in test_coordination_register
+    self.assertTrue(form.is_valid())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_coordination_creation (coordination_app.tests.test_models.CoordinationModelTest.test_coordination_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_models.py", line 81, in test_coordination_creation
+    self.assertEqual(self.coordination.coordination_image.name, 'coordination_winter.png')
+AssertionError: 'coordination_images/coordination_winter_RAv6bWL.png' != 'coordination_winter.png'
+- coordination_images/coordination_winter_RAv6bWL.png
++ coordination_winter.png
+
+
+======================================================================
+FAIL: test_item_creation (coordination_app.tests.test_models.ItemModelTest.test_item_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_models.py", line 24, in test_item_creation
+    self.assertEqual(self.item.image.name, 'knit_gray.png')
+AssertionError: 'knit_gray_pNAnLFc.png' != 'knit_gray.png'
+- knit_gray_pNAnLFc.png
+?          --------
++ knit_gray.png
+
+
+======================================================================
+FAIL: test_error_handling (coordination_app.tests.test_views.CoordinationCreateViewTest.test_error_handling)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 201, in test_error_handling
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: test_coordination_register (coordination_app.tests.test_views.CoordinationListViewTest.test_coordination_register)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 110, in test_coordination_register
+    self.assertEqual(self.coordination.coordination_image, self.coordination_image)
+AssertionError: <ImageFieldFile: coordination_images/coordination_winter_pwS18cE.png> != <SimpleUploadedFile: coordination_winter.png (image/png)>
+
+======================================================================
+FAIL: test_get_request (coordination_app.tests.test_views.CoordinationListViewTest.test_get_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 103, in test_get_request
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: test_weather_data (coordination_app.tests.test_views.CoordinationListViewTest.test_weather_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1375, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 134, in test_weather_data
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: test_coordination_update (coordination_app.tests.test_views.CoordinationUpdateViewTest.test_coordination_update)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 272, in test_coordination_update
+    self.assertRedirects(response, reverse('coordination_list'))
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/test/testcases.py", line 525, in assertRedirects
+    self.assertURLEqual(
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/test/testcases.py", line 552, in assertURLEqual
+    self.assertEqual(
+AssertionError: '/users/login/?next=%2Fcoordination_app%2Fcoordination%2F1%2Fedit%2F' != '/coordination_app/coordination/'
+- /users/login/?next=%2Fcoordination_app%2Fcoordination%2F1%2Fedit%2F
++ /coordination_app/coordination/
+ : Response redirected to '/users/login/?next=/coordination_app/coordination/1/edit/', expected '/coordination_app/coordination/': Expected '/users/login/?next=/coordination_app/coordination/1/edit/' to equal '/coordination_app/coordination/'.
+
+======================================================================
+FAIL: test_get_request (coordination_app.tests.test_views.ItemListViewTest.test_get_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 24, in test_get_request
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: test_item_register (coordination_app.tests.test_views.ItemListViewTest.test_item_register)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 31, in test_item_register
+    self.assertEqual(self.item1.image, self.test_image1)
+AssertionError: <ImageFieldFile: knit_gray_06npleW.png> != <SimpleUploadedFile: knit_gray.png (image/png)>
+
+======================================================================
+FAIL: test_pagination (coordination_app.tests.test_views.ItemListViewTest.test_pagination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 44, in test_pagination
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: test_weather_data (coordination_app.tests.test_views.ItemListViewTest.test_weather_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1375, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/coordination_app/tests/test_views.py", line 57, in test_weather_data
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='北海道')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='青森県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='岩手県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='宮城県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='秋田県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='山形県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='福島県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='茨城県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='栃木県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='群馬県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='埼玉県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='千葉県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='東京都')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='神奈川県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='新潟県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='富山県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='石川県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='福井県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='山梨県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='長野県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='岐阜県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='静岡県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='愛知県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='三重県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='滋賀県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='京都府')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='大阪府')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='兵庫県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='奈良県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='和歌山県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='鳥取県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='島根県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='岡山県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='広島県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='山口県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='徳島県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='香川県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='愛媛県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='高知県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='福岡県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='佐賀県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='長崎県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='熊本県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='大分県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='宮崎県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='鹿児島県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_all_prefectures_registered (users.tests.test_models.RegionModelTest.test_all_prefectures_registered) (prefecture='沖縄県')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_models.py", line 14, in test_all_prefectures_registered
+    self.assertTrue(Region.objects.filter(name=prefecture).exists())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_post_request_region_register (users.tests.test_views.RegionRegisterViewTest.test_post_request_region_register)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/myproject/users/tests/test_views.py", line 71, in test_post_request_region_register
+    self.assertRedirects(response, reverse('item_list'))
+  File "/Users/inouharuka/Desktop/Django/myvenv_2/lib/python3.11/site-packages/django/test/testcases.py", line 471, in assertRedirects
+    self.assertEqual(
+AssertionError: 200 != 302 : Response didn't redirect as expected: Response code was 200 (expected 302)
+
+----------------------------------------------------------------------
+Ran 33 tests in 15.759s
+
+FAILED (failures=60, errors=9)
+Destroying test database for alias 'default'...

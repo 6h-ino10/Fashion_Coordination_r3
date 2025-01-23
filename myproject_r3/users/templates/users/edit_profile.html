@@ -1,0 +1,46 @@
+{% extends 'coordination_app/base.html' %}
+{% load bootstrap %}
+
+{% block title %}登録情報編集{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white text-center">
+                    <h2>登録情報を編集</h2>
+                </div>
+                {% if messages %}
+                    <div class="alert alert-secondary role=alert">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="card-body bg-secondary-subtle">
+                    <form method="post" action="{% url 'edit_profile' %}">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            {{ form.username|bootstrap }}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.email|bootstrap }}
+                        </div>
+                        <button type="submit" class="btn btn-light mt-3" style="margin-bottom: 1rem;">保存</button>
+                    </form>
+                    <hr class="border-bottom">
+                    <h4>パスワードの変更</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ password_form.as_p }}
+                        <button type="submit" class="btn btn-light mt-3">パスワードを変更</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

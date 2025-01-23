@@ -1,0 +1,13 @@
+{% extends 'users/base.html' %}
+{% load bootstrap %}
+
+{% block title %}新規登録{% endblock %}
+{% block content %}
+<h1>新規ユーザー登録</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign Up</button>
+</form>
+
+{% endblock %}

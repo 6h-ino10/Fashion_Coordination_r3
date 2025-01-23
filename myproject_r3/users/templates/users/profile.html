@@ -1,0 +1,31 @@
+{% extends 'coordination_app/base.html' %}
+{% load bootstrap %}
+
+{% block title %}プロファイルページ{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white text-center">
+                    <h2>{{user.username}}の登録情報</h2>
+                </div>
+                <div class="card-body bg-secondary-subtle">
+                    {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <p>ユーザー名：{{user.username}}</p>
+                    <p>メールアドレス：{{user.email}}</p>
+                    <button type="button" class="btn btn-secondary btn-block mt-3 w-100" onclick="location.href='{% url 'edit_profile' %}'">登録情報編集</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

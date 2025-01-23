@@ -1,0 +1,8 @@
+{% extends 'users/base.html' %}
+
+{% block title %}トップ{% endblock %}
+{% block content %}
+<h1>Fasion Coordination</h1>
+<a href="{% url 'login' %}">ログイン</a>
+<a href="{% url 'signup' %}">新規登録</a>
+{% endblock %}
