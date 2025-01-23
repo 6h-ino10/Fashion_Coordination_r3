@@ -1,0 +1,15 @@
+{% extends 'coordination_app/base.html' %}
+{% load bootstrap %}
+
+{% block title %}新規アイテム登録{% endblock %}
+{% block content %}
+<h1>新規アイテム登録</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|bootstrap }}
+    <br>
+    <a href="{% url 'item_list' %}">戻る</a>
+    <input type="submit" class="btn btn-primary" value="登録">
+</form>
+{% endblock %}

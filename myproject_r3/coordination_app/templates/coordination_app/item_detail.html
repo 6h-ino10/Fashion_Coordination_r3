@@ -1,0 +1,26 @@
+{% extends 'coordination_app/base.html' %}
+{% load bootstrap %}
+
+{% block title %}アイテム詳細{% endblock %}
+{% block content %}
+<h1>アイテム詳細</h1>
+<table class="table table-striped table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>アイテム名</th>
+            <th>カテゴリ</th>
+            <th>画像</th>
+        </tr>
+    </thead>
+    {% for item in objact_list %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.category}}</td>
+            <td><img src="{{item.img.url}}" class="img-responsive" style="max-width:100px; height: auto;"></td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'item_list' %}">戻る</a>
+{% endblock %}
+    
+    

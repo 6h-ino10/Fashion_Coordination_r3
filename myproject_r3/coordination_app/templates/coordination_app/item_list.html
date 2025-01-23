@@ -1,0 +1,110 @@
+{% extends 'coordination_app/base.html' %}
+{% load bootstrap %}
+
+{% block title %}アイテム一覧{% endblock %}
+{% block content %}
+<div class="weather-section">
+    {% if weather_data %}
+    <div class="card bg-success p-2 text-white bg-opacity-75" style="margin-bottom: 1rem;">
+        <div class="card-body">
+            <h3 class="card-title">今日の天気 ({{ weather_data.name }})</h3>
+            <div class="d-flex align-items-center">
+                <div class="me-3">
+                    {% if weather_data.weather.0.main == "Clear" %}
+                    <i class="fas fa-sun fa-3x"></i>
+                    {% elif weather_data.weather.0.main == "Clouds" %}
+                    <i class="fas fa-cloud fa-3x"></i>
+                    {% elif weather_data.weather.0.main == "Rain" %}
+                    <i class="fas fa-cloud-showers-heavy fa-3x"></i>
+                    {% elif weather_data.weather.0.main == "Snow" %}
+                    <i class="fas fa-snowflake fa-3x"></i>
+                    {% elif weather_data.weather.0.main == "Thunderstorm" %}
+                    <i class="fas fa-bolt fa-3x"></i>
+                    {% else %}
+                    <i class="fas fa-cloud-sun fa-3x"></i>
+                    {% endif %}
+                </div>
+                <div>
+                    <p class="card-text mb-0">天気: {{ weather_data.weather.0.description }}</p>
+                    <p class="card-text mb-0">気温: {{ weather_data.main.temp }}℃</p>            
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<h1>アイテム一覧</h1>
+<a href="{% url 'item_new' %}">新規アイテム登録</a>
+
+<form method="get" action="{% url 'item_list' %}" id="filter-form">
+    <table class="table table-striped table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>アイテム名</th>
+                <th>
+                    <label for="category">カテゴリ</label>
+                    <select name="category" id="category" class="form-control" onchange="document.getElementById('filter-form').submit();">
+                        <option value="">全てのカテゴリ</option>
+                        <option value="カットソー" {% if request.GET.category == 'カットソー' %}selected{% endif %}>カットソー</option>
+                        <option value="ブラウス" {% if request.GET.category == 'ブラウス' %}selected{% endif %}>ブラウス</option>
+                        <option value="ニット" {% if request.GET.category == 'ニット' %}selected{% endif %}>ニット</option>
+                        <option value="パンツ" {% if request.GET.category == 'パンツ' %}selected{% endif %}>パンツ</option>
+                        <option value="スカート" {% if request.GET.category == 'スカート' %}selected{% endif %}>スカート</option>
+                        <option value="ワンピース" {% if request.GET.category == 'ワンピース' %}selected{% endif %}>ワンピース</option>
+                        <option value="シューズ" {% if request.GET.category == 'シューズ' %}selected{% endif %}>シューズ</option>
+                    </select>
+                </th>
+                <th>
+                    <label for="season">シーズン</label>
+                    <select name="season" id="season" class="form-control" onchange="document.getElementById('filter-form').submit();">
+                        <option value="">全てのシーズン</option>
+                        <option value="Spring" {% if request.GET.season == 'Spring' %}selected{% endif %}>Spring</option>
+                        <option value="Summer" {% if request.GET.season == 'Summer' %}selected{% endif %}>Summer</option>
+                        <option value="Fall" {% if request.GET.season == 'Fall' %}selected{% endif %}>Fall</option>
+                        <option value="Winter" {% if request.GET.season == 'Winter' %}selected{% endif %}>Winter</option>
+                    </select>
+                </th>
+                <th>画像</th>
+                <th>メモ</th>
+                <th>アクション</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in item_list %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.season}}</td>
+                <td><img src="{{item.image.url}}" class="img-responsive" style="max-width:100px; height: auto;"></td>
+                <td>{{item.memo}}</td>
+
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'item_edit' pk=item.pk %}'">編集</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='{% url 'item_delete' pk=item.pk %}'">削除</button>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">アイテムが見つかりません。</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+
+{# ページの表示 #}
+{{ page_obj.number }}/{{ page_obj.paginator.num_pages }}ページ<br>
+
+{# 前へ #}
+{% if page_obj.has_previous %}
+<a href="?page=1">&laquo;先頭</a>
+<a href="?page={{ page_obj.previous_page_number }}">前へ</a>
+{% endif %}
+
+{# 次へ #}
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">次へ</a>
+<a href="?page={{ page_obj.paginator.num_pages }}">最後 &raquo;</a>
+{% endif %}
+{% endblock %}

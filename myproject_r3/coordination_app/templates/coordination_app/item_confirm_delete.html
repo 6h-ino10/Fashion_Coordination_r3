@@ -1,0 +1,14 @@
+{% extends "coordination_app/base.html" %}
+
+{% block title %}アイテム削除{% endblock %}
+{% block content %}
+<h1>削除</h1>
+
+<form method="post">
+    {% csrf_token %}
+    以下のアイテムを削除してもよろしいですか？<br>
+    {{ object }}<br>
+    <a href="{% url 'item_list' %}">戻る</a>
+    <input type="submit" class="btn btn-danger" value="削除">
+</form>
+{% endblock %}
